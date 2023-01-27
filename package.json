@@ -1,0 +1,21 @@
+{
+  "name": "poc-next-ssr-cra",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bootstrap": "cd apps/cra && yarn && cd ../.. && cd apps/next && yarn && cd ../..",
+    "build": "yarn bootstrap && yarn build:cra && yarn build:next",
+    "build:cra": "cd apps/cra && yarn build && cd ../..",
+    "build:next": "cd apps/next && yarn build && cd ../..",
+    "start": "yarn build && cd apps/next && yarn start"
+  },
+  "keywords": [],
+  "author": "Jeremy Gayed",
+  "license": "ISC"
+}
